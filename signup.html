@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            color:white
+        }
+        h1{
+            justify-content: center;
+        }
+        .main{
+            border:solid;
+            border-radius: 10px;
+            display:grid;
+            width:40%;
+            justify-content: center;
+            align-content: center;
+            padding-bottom: 20px;
+            backdrop-filter: blur(20px);
+            border:none;
+            box-shadow: 0px 0px 5px black;
+            margin-top: 200px;
+        }
+        .submit{
+            padding:10px;
+            padding-right:20px;
+            padding-left: 20px;
+            background-color: rgb(58, 184, 226);
+            color:azure;
+            border:none;
+            border-radius: 10px;
+        }
+        .input{
+            padding:5px;
+        }
+        .abc{
+            margin-bottom:15%;
+            padding:5px;
+            color:black
+        }
+        label{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+        }
+        .xyz{
+            margin-bottom:15%;
+            padding:5px;
+            color:black
+        }
+        .submit:hover{
+            background-color: rgb(40, 121, 228);
+            transition: ease-in 0.4s;
+        }
+        option{
+            color:black
+        }
+    </style>
+    <script>
+        function validation(){
+            
+            let u=document.getElementById("Username").value
+            let p=document.getElementById("Password").value
+            let e=document.getElementById("Email").value
+            let m=document.getElementById("Mobile").value
+            let s=document.getElementById("SapId").value
+            let mrks=document.getElementById("Marks").value
+
+            const nameRegex = /^[a-zA-Z\s]+$/;
+            const SAPIDRegex = /^[0-9]{10}$/;
+            const phoneRegex = /^[0-9]{10}$/;
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const mathsRegex = /^[0-9]{1,3}$/;
+
+            if(u==""|| p==""|| e==""|| m==""|| s=="" || mrks==""){
+                alert('empty field')
+                return false;
+            }
+            
+            if(!emailRegex.test(e)){
+                alert('enter correct email format')
+                return false
+            }
+            if(!nameRegex.test(u)) {
+                alert('enter correct name format')
+                return false
+            }
+            if(!SAPIDRegex.test(s)) {
+                alert('enter correct sapid format')
+                return false
+            }
+            if(!phoneRegex.test(m)) {
+                alert('enter correct mobile format')
+                return false
+            }
+            if(!mathsRegex.test(mrks)) {
+                alert('enter correct marks format')
+                return false
+            }
+
+            alert('registration complete')
+            return true
+        };
+    </script>
+
+</head>
+<body style="background-image: url(https://images.pexels.com/photos/1905045/pexels-photo-1905045.jpeg); background-repeat: no-repeat; background-size: cover;">
+    <center>
+        <form class="form-container" method="get" onsubmit="return validation()" action="data.html">
+            <div class="main">
+                <header>
+                    <h1 style="font-size: 40px">Registration Form</h1>
+                </header>
+                <div class="input" style="display: flex ">
+                    <div class="general" style="margin: 10px;">
+                        <label>Name:</label><br><input type="text" id="Username" name="name" class="abc"> <br>
+                        <small></small><br>
+                        <label>Email:</label><br><input type="text" id="Email" name="email" class="abc"> <br>
+                        <small></small><br>
+                        <label>Password:</label><br><input type="password" id="Password" class="abc"><br>
+                        <small></small><br>
+                        <label>Mobile:</label><br><input id="Mobile" type="number" maxlength="10" name="phone" class="abc"><br>
+                        <small></small><br>
+                    </div>
+                    <div class="info" style="margin: 10px;color:black">
+                        <label>SapId:</label><br><input id="SapId" class="xyz" type="number" style="resize: none" name="sapid"><br>
+                        <small></small><br>
+                        <label>Marks:</label><br><input class="xyz" id="Marks" type="number" name="marks"><br>
+                        <small></small><br>
+                        <label>Select Course:</label><br><select id="Course" name="course" class="xyz">
+                            <option value="s">Select a Course</option>
+                            <option value="cs">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="aiml">Machine Learning</option>
+                            <option value="extc">Electronics</option>
+                        </select>
+                        <small></small><br>
+                    </div>
+                </div>
+                <center><button id="submit" type="submit" class="submit" style="font-size: x-large;">Submit</button></center>
+            </div>
+        </form>
+    </center>
+    </body>
+    </html>
